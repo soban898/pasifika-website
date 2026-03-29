@@ -1,0 +1,9 @@
+
+@media (max-width: 1199px) {
+    .main-menu-three__left,
+    .main-menu-three__logo,
+    .main-menu-three__btn-box,
+    .main-menu-three__right {
+        display: none !important;
+    }
+}
