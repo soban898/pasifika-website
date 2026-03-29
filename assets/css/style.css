@@ -2314,6 +2314,9 @@ xs sidebar
     height: 100% !important;
 }
 
+.main-menu-three__mobile-logo {
+    display: none;
+}
 
 
 

@@ -3078,4 +3078,34 @@
     .main-menu-three__right {
         display: none !important;
     }
+
+    .main-menu-three__wrapper-inner {
+        position: relative;
+    }
+
+    .main-menu-three__mobile-logo {
+        display: block !important;
+        position: absolute;
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        height: 90px;
+        pointer-events: auto;
+    }
+
+    .main-menu-three__mobile-logo a {
+        display: inline-block;
+        pointer-events: auto;
+    }
+
+    .main-menu-three__mobile-logo img {
+        pointer-events: auto;
+    }
+
+    .main-menu-three__mobile-logo img {
+        display: block;
+        height: 79px;
+        width: auto;
+    }
 }
