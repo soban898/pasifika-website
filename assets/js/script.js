@@ -39,10 +39,21 @@
   }
 
 
-  // Preloader
-  $(window).on('load', function (event) {
-    $('.js-preloader').delay(300).fadeOut(200);
-  });
+/*--------------------------------------------------------------
+  Preloader (FIXED - FAST LOAD)
+--------------------------------------------------------------*/
+document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.querySelector(".js-preloader");
+
+  if (loader) {
+    loader.style.opacity = "0";
+    loader.style.transition = "0.3s ease";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 300);
+  }
+});
 
 
 
