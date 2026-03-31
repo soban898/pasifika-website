@@ -777,6 +777,19 @@
     right: 0;
 }
 
+.causes-three__content {
+    padding: 32px 25px 40px;
+}
+
+.causes-three__btn-box {
+    margin-top: 12px;
+}
+
+.causes-three__content .coming-badge,
+.causes-three__content .coming-soon {
+    margin-bottom: 20px;
+}
+
 .causes-three__donate-btn-box .thm-btn {
     padding: 8px 30px 6px;
     font-size: 14px;
@@ -959,7 +972,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .causes-three__btn-box .thm-btn::before,

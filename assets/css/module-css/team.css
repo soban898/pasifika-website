@@ -665,10 +665,13 @@
 
 .team-three__content {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    padding: 28px 0 35px;
+    padding: 18px 15px 22px;
     z-index: 1;
+    min-height: 130px;
 }
 
 .team-three__content:before {
