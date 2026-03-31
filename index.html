@@ -1054,16 +1054,22 @@ As a Pasifika ambassador, Linn embodies resilience, empowerment, and community, 
             </div>
           </div>
 
-          <!-- Button -->
-          <div class="pf-ambassadors__cta text-center">
-            <a
-              href="assets/video/smoke-ceremony.mp4"
-              class="thm-btn video-popup"
-            >
-              <span class="thm-btn-text">Watch Our Cultural Ceremony</span>
-            </a>
-          </div>
-        </div>
+         
+
+
+<div class="about-three__video-link1">
+  <a href="assets/video/smoke-ceremony.mp4" class="video-popup">
+    
+    <div class="about-three__video-icon">
+      <span class="fa fa-play"></span>
+      <i class="ripple"></i>
+    </div>
+
+  </a>
+</div>
+
+  </a>
+</div>
       </section>
       <!-- Team Three End -->
 
@@ -1091,8 +1097,8 @@ As a Pasifika ambassador, Linn embodies resilience, empowerment, and community, 
 
             <!-- RIGHT: CONTENT -->
             <div class="event-highlight__content">
-              <h3 class="event-subtitle">
-                Join Us for a Day of Culture & Community
+              <h3 class="section-title__title1 title-animation">
+                Join Us for a Day of <span>Culture & Community</span>
               </h3>
 
               <p class="event-desc">
@@ -1113,10 +1119,9 @@ As a Pasifika ambassador, Linn embodies resilience, empowerment, and community, 
       </section>
       <!-- Event One End -->
 
-      <section class="youth-sponsorship">
-        <div class="container">
-          <!-- SECTION TITLE (IMPORTANT ADD) -->
-          <div class="section-title text-center">
+     <section class="youth-sponsorship">
+  <div class="container"> <!-- 🔥 IMPORTANT ADD -->
+ <div class="section-title text-center">
             <div class="section-title__tagline-box">
               <span class="section-title__tagline">Our Mission</span>
             </div>
@@ -1124,43 +1129,51 @@ As a Pasifika ambassador, Linn embodies resilience, empowerment, and community, 
               Supporting Youth Through <span>Sport & Opportunity</span>
             </h2>
           </div>
+    <div class="youth-sponsorship__inner">
 
-          <div class="youth-sponsorship__inner">
-            <!-- LEFT CONTENT -->
-            <div class="youth-sponsorship__content">
-              <p>
-                Our goal is to support disadvantaged youth who are passionate
-                about sport but lack the financial resources to pursue their
-                dreams.
-              </p>
+      <!-- LEFT IMAGE -->
+      <div class="youth-sponsorship__image">
+        <img src="assets/images/resources/youth-support.png" alt="Youth Support" />
+      </div>
 
-              <p>
-                Through this initiative, we aim to provide support for essential
-                needs such as sporting equipment, uniforms, training
-                opportunities, and mentorship.
-              </p>
+      <!-- RIGHT CONTENT -->
+      <div class="youth-sponsorship__content">
 
-              <p class="coming-soon">
-                We are currently preparing to support our first young athlete.
-                More updates coming soon.
-              </p>
-            </div>
+        <div class="youth-text">
+          <p>
+            Our goal is to support disadvantaged youth who are passionate
+            about sport but lack the financial resources to pursue their dreams.
+          </p>
 
-            <!-- RIGHT CARD -->
-            <div class="youth-sponsorship__card">
-              <div class="sponsorship-card">
-                <h3>First Athlete</h3>
-                <p>
-                  We are currently identifying a young athlete who will be the
-                  first to receive support through our sponsorship program.
-                </p>
-
-                <span class="coming-badge">Coming Soon</span>
-              </div>
-            </div>
-          </div>
+          <p>
+            Through this initiative, we aim to provide support for essential
+            needs such as sporting equipment, uniforms, training opportunities,
+            and mentorship.
+          </p>
         </div>
-      </section>
+
+        <!-- 🔥 NEW HIGHLIGHT BOX -->
+        <div class="coming-soon-box">
+          We are currently preparing to support our first young athlete.
+          More updates coming soon.
+        </div>
+
+        <!-- CARD -->
+        <div class="sponsorship-card">
+          <h3>First Athlete</h3>
+          <p>
+            We are currently identifying a young athlete who will be the first
+            to receive support through our sponsorship program.
+          </p>
+          <span class="coming-badge">Coming Soon</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
       <!-- Why Choose One Start -->
       <section class="why-choose-one">
@@ -1901,35 +1914,45 @@ As a Pasifika ambassador, Linn embodies resilience, empowerment, and community, 
     <script src="assets/js/gsap/gsap.js"></script>
     <script src="assets/js/gsap/ScrollTrigger.js"></script>
     <script src="assets/js/gsap/SplitText.js"></script>
-
+<script src="assets/js/script.js"></script>
     <script>
-      const eventDate = new Date("2026-08-08T10:00:00").getTime();
+     // Event Date (Adjust time if needed)
+const eventDate = new Date("2026-08-08T10:00:00").getTime();
 
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = eventDate - now;
+// Format numbers to always show 2 digits
+function formatTime(value) {
+  return value.toString().padStart(2, "0");
+}
 
-        if (distance <= 0) {
-          document.querySelector(".event-countdown").innerHTML =
-            "Event Started!";
-          return;
-        }
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((distance / (1000 * 60)) % 60);
-        const seconds = Math.floor((distance / 1000) % 60);
+  // If event started
+  if (distance <= 0) {
+    document.querySelector(".boxing-timer__countdown").innerHTML =
+      "<h3>Event Started!</h3>";
+    return;
+  }
 
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-      }
+  // Time calculations
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
 
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
+  // Update DOM with formatted values
+  document.getElementById("days").innerHTML = formatTime(days);
+  document.getElementById("hours").innerHTML = formatTime(hours);
+  document.getElementById("minutes").innerHTML = formatTime(minutes);
+  document.getElementById("seconds").innerHTML = formatTime(seconds);
+}
+
+// Run immediately + every second
+updateCountdown();
+setInterval(updateCountdown, 1000);
     </script>
 
-    <script src="assets/js/script.js"></script>
+    
   </body>
 </html>
