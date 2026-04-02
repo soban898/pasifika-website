@@ -3787,7 +3787,15 @@ xs sidebar
 
 
 
-
+.video-one__sub-title {
+    font-size: 35px !important;
+    line-height: 45px !important;
+    color: var(--helpest-white) !important;
+    font-weight: 700 !important;
+    letter-spacing: 3.5px !important;
+    font-family: var(--helpest-font-three) !important;
+    margin: 50px 0 10px !important;
+}
 
 
 
