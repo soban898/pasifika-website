@@ -2314,9 +2314,7 @@ xs sidebar
     height: 100% !important;
 }
 
-.main-menu-three__mobile-logo {
-    display: none;
-}
+
 
 
 
@@ -3404,15 +3402,15 @@ xs sidebar
 
 /* FIX POSTER SIZE */
 .event-highlight__image {
-    flex: 0.45 !important; /* smaller */
-    max-width: 480px !important;
+    flex: 0.55 !important;   /* 🔥 give more space */
+    max-width: 600px !important;
 }
 
 /* LIMIT HEIGHT */
 .event-highlight__image img {
     width: 100% !important;
     height: auto !important;   /* 🔥 FIX */
-    max-height: 550px !important;
+    max-height: none !important;
     object-fit: contain !important;  /* 🔥 NO CROPPING */
     border-radius: 20px !important;
 }
@@ -3795,209 +3793,167 @@ xs sidebar
 
 
 
-/* ================================
-   PASIFIKA AMBASSADORS (ROW LAYOUT FINAL)
-================================ */
-
+/* SECTION */
 .pf-ambassadors {
-    padding: 90px 0 !important;
+    padding: 90px 0;
 }
+
+/* GRID */
+.pf-ambassadors__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 75px;
+    margin-top: 60px;
+}
+
+/* CARD */
+.pf-flip-card {
+    perspective: 1000px;
+}
+
+.pf-flip-card:hover .pf-flip-card__inner {
+    transform: rotateY(180deg) scale(1.02) !important;
+}
+
+.pf-flip-card__inner {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* FLIP */
+.pf-flip-card:hover .pf-flip-card__inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT + BACK */
+.pf-flip-card__front,
+.pf-flip-card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+/* FRONT */
+.pf-flip-card__front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BACK */
+.pf-flip-card__back {
+    background: #0f3d2e;
+    color: #fff;
+    transform: rotateY(180deg);
+    padding: 20px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pf-flip-card__back h4 {
+    margin-bottom: 5px;
+}
+
+.pf-flip-card__back .role {
+    color: #ff6a00;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.pf-flip-card__back p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* VIDEO LINK */
+.pf-flip-card__back a {
+    margin-top: 10px;
+    color: #ff6a00;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* HOVER EFFECT */
+
 
 .pf-container {
-    max-width: 1300px !important;
-    margin: 0 auto !important;
-    padding: 0 15px !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px; /* 🔥 more breathing space */
 }
 
-/* ================================
-   GRID → STACKED ROWS
-================================ */
+
+.pf-flip-card {
+    position: relative;
+    perspective: 1000px;
+}
+
+/* gradient border */
+.pf-flip-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* show on hover */
+.pf-flip-card:hover::before {
+    opacity: 1;
+}
 
 .pf-ambassadors__grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 50px !important;
-    margin-top: 60px !important;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 40px; /* 🔥 more spacing between cards */
+    margin-top: 60px;
 }
 
-/* ================================
-   CARD → ROW STYLE
-================================ */
-
-.pf-amb-card {
-    display: flex !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    background: #fff !important;
-    border-radius: 18px !important;
-    overflow: hidden !important;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.06) !important;
-    transition: all 0.35s ease !important;
-    border: 2px solid transparent !important;
+.pf-flip-card__back h4 {
+    color: #fff !important;
 }
 
-/* Hover */
-.pf-amb-card:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.08) !important;
+
+.pf-flip-card__front,
+.pf-flip-card__back {
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
 }
 
-/* ================================
-   TYPE COLORS
-================================ */
-
-.pf-amb-card--boxing .team-three__title {
-    color: #f15a24 !important;
+.pf-flip-card:hover .pf-flip-card__inner {
+    transform: rotateY(180deg) scale(1.02);
 }
 
-.pf-amb-card--cultural .team-three__title {
-    color: #f4b400 !important;
-}
+/* MOBILE */
+@media (max-width: 768px) {
+  
 
-/* Hover Borders */
-.pf-amb-card--boxing:hover {
-    border-color: #f15a24 !important;
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.08),
-        0 0 0 3px rgba(241, 90, 36, 0.15) !important;
-}
 
-.pf-amb-card--cultural:hover {
-    border-color: #f4b400 !important;
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.08),
-        0 0 0 3px rgba(244, 180, 0, 0.15) !important;
-}
-
-/* ================================
-   IMAGE (LEFT SIDE)
-================================ */
-
-.pf-amb-card__media {
-    width: 40% !important;
-    min-height: 320px !important;
-    position: relative !important;
-    overflow: hidden !important;
-}
-
-/* Image animation (fade switch) */
-.pf-amb-card__media img {
-    position: absolute !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    animation: pfFade 8s ease-in-out infinite;
-}
-
-/* First image visible */
-.pf-amb-card__media img:nth-child(1) {
-    opacity: 1;
-    z-index: 2;
-}
-
-/* Second image delayed */
-.pf-amb-card__media img:nth-child(2) {
-    animation-delay: 4s;
-}
-
-/* Fade animation */
-@keyframes pfFade {
-    0%   { opacity: 1; }
-    45%  { opacity: 1; }
-    50%  { opacity: 0; }
-    95%  { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* ================================
-   CONTENT (RIGHT SIDE)
-================================ */
-
-.pf-amb-card__body {
-    width: 60% !important;
-    padding: 35px !important;
-    text-align: left !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-}
-
-/* Name */
-.pf-amb-card .team-three__name {
-    font-size: 24px !important;
-    margin-bottom: 6px !important;
-}
-
-/* Role */
-.pf-amb-card .team-three__title {
-    margin-bottom: 15px !important;
-    font-weight: 600 !important;
-    font-size: 15px !important;
-    letter-spacing: 1px !important;
-}
-
-/* Bio */
-.pf-amb-card .ambassador-bio {
-    max-width: 100% !important;
-    margin: 0 !important;
-    line-height: 1.7 !important;
-    font-size: 15px !important;
-    color: #555 !important;
-}
-
-/* ================================
-   CTA BUTTON
-================================ */
-
-.pf-ambassadors__cta {
-    margin-top: 60px !important;
-}
-
-/* ================================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 992px) {
-
-    .pf-amb-card__media {
-        width: 45% !important;
+      .pf-ambassadors__grid {
+        grid-template-columns: 1fr; /* 🔥 single column */
+        gap: 25px; /* slightly tighter spacing */
     }
 
-    .pf-amb-card__body {
-        width: 55% !important;
+    .pf-flip-card__inner {
+        height: 280px;
     }
+
+
 }
 
-@media (max-width: 820px) {
 
-    .pf-amb-card {
-        flex-direction: column !important;
-    }
-
-    .pf-amb-card__media {
-        width: 100% !important;
-        height: 260px !important;
-        position: relative !important;
-    }
-
-    .pf-amb-card__media img {
-        position: absolute !important;
-        animation: none !important;
-        opacity: 1 !important;
-    }
-
-    .pf-amb-card__media img:nth-child(2) {
-        display: none !important;
-    }
-
-    .pf-amb-card__body {
-        width: 100% !important;
-        padding: 25px !important;
-    }
-}
 
 
 
@@ -4149,6 +4105,33 @@ xs sidebar
   opacity: 0.9 !important;
 }
 
+
+
+
+.boxing-timer__inner {
+    transition: transform 0.3s ease;
+}
+
+.boxing-timer__inner:hover {
+    transform: scale(1.02);
+}
+
+.poster-link-hint {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.boxing-timer__inner:hover .poster-link-hint {
+    color: #ff6a00 !important;
+    opacity: 1 !important;
+}
+
+
+
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .boxing-timer__inner {
@@ -4165,3 +4148,41 @@ xs sidebar
     font-size: 48px !important;
   }
 }
+
+
+
+
+
+
+
+
+.video-one__coming-soon p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ff6a00;
+    margin-top: 5px;
+}
+
+
+
+/* PASIFIKA DAY */
+
+.event-features {
+    margin-top: 20px;
+}
+
+.event-features h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.event-features ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.event-features ul li {
+    margin-bottom: 8px;
+}
+
+
