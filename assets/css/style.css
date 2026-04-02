@@ -3458,7 +3458,9 @@ xs sidebar
 .event-info {
     list-style: none !important;
     padding: 0 !important;
-    margin-bottom: 25px !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    flex-direction: row !important;
 }
 
 .event-info li {
@@ -3572,6 +3574,11 @@ xs sidebar
     .event-info li {
         font-size: 14px !important;
         margin-bottom: 6px !important;
+        
+    }
+
+    .event-info{
+      flex-direction: column !important;
     }
     .event-countdown {
         justify-content: center !important;
